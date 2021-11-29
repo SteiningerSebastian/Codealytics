@@ -1,0 +1,2 @@
+﻿
+Analytics analytics = new Analytics();
