@@ -13,6 +13,10 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Codealytics")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Sebastian Steininger (sebastian.steininger@outlook.com)")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("This package provides a analytics-tool, Runtime of Code, Custom variables, Print " +
+    "and Handle UI.\r\nIt is intended to be used to to analyze code, it allso contains " +
+    "functions for statsitics.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Codealytics")]

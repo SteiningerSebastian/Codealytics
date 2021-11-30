@@ -21,26 +21,85 @@ namespace Codealytics
         ConcurrentDictionary<string, bool> hiddenMetrics = new ConcurrentDictionary<string, bool>();
 
         /// <summary>
-        /// The following lockObj is used to manage redraws
+        /// The lockObj is used to manage redraws
         /// </summary>
-        object lockObj = new object();
+        object lockObjRedraw = new object();
+
+        /// <summary>
+        /// The lockObj is used to manage termination of handle UI
+        /// </summary>
+        object lockObjHandleUI = new object();
+
+        /// <summary>
+        /// Bool for redarawing the Ui
+        /// </summary>
         bool redraw = true;
 
         /// <summary>
         /// List of characters a id is not allowed to contain
         /// </summary>
         private List<string> invalidChars = new List<string>() {"\"", "!", "°", "^", "+", "-", "*", ":", ";", ",", "!",
-        "?", "=", "(", ")", "{", "}", "[", "]", "$","%","&","/","@","<",">","|"};
+        "?", "=", "(", ")", "{", "}", "[", "]", "$","%","&","/","@","<",">","|", "\'"};
 
         /// <summary>
         /// The prefix is displayed in the console when printed
         /// </summary>
-        public string Prefix { get; set; } = "--------------- Analytics ---------------\n";
+        string prefix = "--------------- Analytics ---------------\n";
+        public string Prefix
+        {
+            get { return prefix; }
+            set
+            {
+                if (HandleUi)
+                {
+                    throw new InvalidOperationException("You can not set the Prefix while the class handles the UI please try to set it before.");
+                }
+                else
+                {
+                    prefix = value;
+                }
+            }
+        }
 
         /// <summary>
         /// The suffix is displayed in the console when printed
         /// </summary>
-        public string Suffix { get; set; } = "------- Dev. Sebastian Steininger -------\n";
+        string suffix = "------- Dev. Sebastian Steininger -------\n";
+        public string Suffix
+        {
+            get { return suffix; }
+            set
+            {
+                if (HandleUi)
+                {
+                    throw new InvalidOperationException("You can not set the Prefix while the class handles the UI please try to set it before.");
+                }
+                else
+                {
+                    suffix = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Can be set to let the class handle the console output.
+        /// </summary>
+        private bool handleUi = false;
+        public bool HandleUi
+        {
+            get { lock (lockObjHandleUI) { return handleUi; } }
+            set
+            {
+                lock (lockObjHandleUI)
+                {
+                    handleUi = value;
+                    if (handleUi)
+                    {
+                        this.StartHandleUI();
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Adds a metric (e.g. string, int, delegate, etc.)
@@ -63,7 +122,7 @@ namespace Codealytics
             //Redraw is needed if new metrics are added that should be displayed
             if (!hide)
             {
-                lock (lockObj)
+                lock (lockObjRedraw)
                 {
                     redraw = true;
                 }
@@ -106,7 +165,7 @@ namespace Codealytics
             //Redraw is needed if new metrics are added that should be displayed
             if (!hide)
             {
-                lock (lockObj)
+                lock (lockObjRedraw)
                 {
                     redraw = true;
                 }
@@ -144,7 +203,7 @@ namespace Codealytics
             if (metrics.TryGetValue(id, out (Type type, dynamic value) value))
             {
                 //check if the value equals the type
-                if (value.GetType() == typeof(T))
+                if (value.value.GetType() == typeof(T))
                 {
                     return (T)value.value;
                 }
@@ -186,8 +245,12 @@ namespace Codealytics
             {
                 lock (hiddenMetrics)
                 {
-                    if (metrics.TryGetValue(id, out (Type type, dynamic value) compVal) && hiddenMetrics.TryUpdate(id, hide, !hide))
+                    if (metrics.TryGetValue(id, out (Type type, dynamic value) compVal) && hiddenMetrics.TryGetValue(id, out bool isHidden))
                     {
+                        if (isHidden != hide)
+                        {
+                            hiddenMetrics.TryUpdate(id, isHidden, hide);
+                        }
                         if (metrics.TryUpdate(id, (value.GetType(), value), compVal))
                         {
                             return;
@@ -221,8 +284,12 @@ namespace Codealytics
             {
                 lock (hiddenMetrics)
                 {
-                    if (metrics.TryGetValue(id, out (Type type, dynamic value) compVal) && hiddenMetrics.TryUpdate(id, hide, !hide))
+                    if (metrics.TryGetValue(id, out (Type type, dynamic value) compVal) && hiddenMetrics.TryGetValue(id, out bool isHidden))
                     {
+                        if (isHidden != hide)
+                        {
+                            hiddenMetrics.TryUpdate(id, isHidden, hide);
+                        }
                         T value = func(compVal.value);
                         if (metrics.TryUpdate(id, (value.GetType(), value), compVal))
                         {
@@ -269,26 +336,47 @@ namespace Codealytics
         }
 
         /// <summary>
-        /// Handels the presentation of the analytics.
+        /// Checks if a metric with the identifier exists.
+        /// </summary>
+        /// <param name="id">The identifier to check for a metric.</param>
+        /// <returns>Returns a true if the metric exists</returns>
+        public bool MetricExists(string id)
+        {
+            CheckIdentifier(id);
+            return metrics.ContainsKey(id);
+        }
+
+        /// <summary>
+        /// Starts a new Thread that handels the presentation of the analytics. (Pleas do not use the console)
         /// </summary>
         /// <param name="ups">Updates per second.</param>
-        public void HandleUI(int ups = 32)
+        private void StartHandleUI(int ups = 32)
         {
             //Create a new thread handling the Ui and return after start
             Thread th = new Thread(() =>
             {
                 Console.CursorVisible = false;
+                Console.Clear();
+                Console.CursorLeft = 0;
+                Console.CursorTop = 0;
 
                 //Update loop
                 while (true)
                 {
                     string output = "";
                     //check if a redraw must be done (new metrics, etc.)
-                    if (redraw)
+                    bool redraw_;
+                    lock (lockObjRedraw)
                     {
+                        redraw_ = redraw;
+                    }
+                    List<KeyValuePair<string, (Type type, dynamic value)>> kvpList = metrics.ToList().OrderBy(metric => metric.Key).ToList();
+                    if (redraw_)
+                    {
+                        Console.Clear();
                         //add the Prefix to the output
-                        output += Prefix;
-                        foreach (KeyValuePair<string, (Type type, dynamic value)> kvp in metrics)
+                        output += prefix;
+                        foreach (KeyValuePair<string, (Type type, dynamic value)> kvp in kvpList)
                         {
                             string id = kvp.Key;
                             //do not display hidden metrics
@@ -306,14 +394,20 @@ namespace Codealytics
 
                             }
                         }
-                        output += Suffix;
+                        output += suffix;
+                        lock (lockObjRedraw)
+                        {
+                            redraw_ = false;
+                            redraw = redraw_;
+                        }
+                        Console.WriteLine(output);
                     }
                     //update values
                     else
                     {
                         //set the cursor top position
-                        Console.CursorTop = Prefix.Split('\n').Length;
-                        foreach (KeyValuePair<string, (Type type, dynamic value)> kvp in metrics)
+                        Console.CursorTop = prefix.Split('\n').Length - 1;
+                        foreach (KeyValuePair<string, (Type type, dynamic value)> kvp in kvpList)
                         {
                             string id = kvp.Key;
                             //Check if the metric is hidden
@@ -325,24 +419,24 @@ namespace Codealytics
                                     Console.CursorLeft = ($"{id}: ").Length;
                                     var v = metrics[id].value();
                                     Console.Write($"{v}\n");
-                                    //increase cursorTop position to get to the right lin
-                                    Console.CursorTop += $"{v}\n".Split('\n').Length;
                                 }
                                 else
                                 {
                                     Console.CursorLeft = ($"{id}: ").Length;
                                     Console.Write($"{metrics[id].value}\n");
-                                    //increase cursorTop position to get to the right lin
-                                    Console.CursorTop += $"{metrics[id].value}\n".Split('\n').Length;
                                 }
                             }
                         }
                     }
-                    Console.WriteLine(output);
 
-                    //Reset the position of the cursor for the next update
-                    Console.CursorLeft = 0;
-                    Console.CursorTop = 0;
+                    lock (lockObjHandleUI)
+                    {
+                        if (!HandleUi)
+                        {
+                            Console.Clear();
+                            return;
+                        }
+                    }
 
                     //wait for x seconds to get updates per second
                     Thread.Sleep(1000 / ups);
@@ -352,14 +446,15 @@ namespace Codealytics
         }
 
         /// <summary>
-        /// Prints the analysed data
+        /// Creates a string containing all information of the class (all variables that are not hidden)
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a string contining information of the class</returns>
         public override string ToString()
         {
             string output = "";
-            output += Prefix;
-            foreach (KeyValuePair<string, (Type type, dynamic value)> kvp in metrics)
+            output += prefix;
+            List<KeyValuePair<string, (Type type, dynamic value)>> kvpList = metrics.ToList().OrderBy(metric => metric.Key).ToList();
+            foreach (KeyValuePair<string, (Type type, dynamic value)> kvp in kvpList)
             {
                 string id = kvp.Key;
                 //do not display hidden metrics
@@ -374,10 +469,9 @@ namespace Codealytics
                     {
                         output += $"{id}: {metrics[id].value} \n";
                     }
-
                 }
             }
-            output += Suffix;
+            output += suffix;
             return output;
         }
 
@@ -396,9 +490,9 @@ namespace Codealytics
             {
                 throw new ArgumentException("Identifier is not allowed to contain \" \" ");
             }
-            else if (id.All(char.IsDigit))
+            else if (id[0].ToString().Any(Char.IsDigit))
             {
-                throw new ArgumentException("Identifier is not allowed to contain digits");
+                throw new ArgumentException("Identifier is not allowed to contain digits at index zero!");
             }
             else if (invalidChars.Any(s => id.Contains(s)))
             {
