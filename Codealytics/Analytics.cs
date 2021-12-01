@@ -102,6 +102,11 @@ namespace Codealytics
         }
 
         /// <summary>
+        /// A private uuid for auto generated metrics.
+        /// </summary>
+        private int uuid = 0;
+
+        /// <summary>
         /// Adds a metric (e.g. string, int, delegate, etc.)
         /// </summary>
         /// <typeparam name="T">The datatype of the metric.</typeparam>
@@ -344,6 +349,48 @@ namespace Codealytics
         {
             CheckIdentifier(id);
             return metrics.ContainsKey(id);
+        }
+
+
+        /// <summary>
+        /// Analyzes the given code.
+        /// </summary>
+        /// <param name="id">The id of the metric of type RuntimePerformanceInformation in which result should be saved in.</param>
+        /// <param name="action">The code that should be analyced during runtime.</param>
+        public void CodeRuntimePerformance(string id, Action action)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            action();
+            stopwatch.Stop();
+            int elepsedMSec = (int)stopwatch.ElapsedMilliseconds;
+            UpdateMetric<IRuntimePerformanceInfromation>(id, (rpi) =>
+            {
+                rpi.AddResult(elepsedMSec);
+                return rpi;
+            });
+        }
+
+        /// <summary>
+        /// Analyzes the given code.
+        /// </summary>
+        /// <param name="id">The id of the metric of type RuntimePerformanceInformation in which result should be saved in.</param>
+        /// <param name="action">The code that should be analyced during runtime.</param>
+        public string CodeRuntimePerformance(Action action)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            action();
+            stopwatch.Stop();
+            int ellepsedMSec = (int)stopwatch.ElapsedMilliseconds;
+
+            string id = $"RuntimePerformanceInformation_{uuid}";
+            uuid++;
+            IRuntimePerformanceInfromation rpi = new RuntimePerformanceInfromation();
+            rpi.AddResult(ellepsedMSec);
+
+            AddMetric<IRuntimePerformanceInfromation>(id, rpi);
+            return id;
         }
 
         /// <summary>

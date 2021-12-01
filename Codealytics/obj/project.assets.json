@@ -12,7 +12,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.0-a1",
     "restore": {
       "projectUniqueName": "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics\\Codealytics.csproj",
       "projectName": "Codealytics",

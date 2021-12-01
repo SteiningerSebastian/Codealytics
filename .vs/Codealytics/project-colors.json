@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f68cde99-a4ad-4247-a148-5d6c268914a0": {
+      "ProjectGuid": "f68cde99-a4ad-4247-a148-5d6c268914a0",
+      "DisplayName": "Codealytics",
+      "ColorIndex": 0
+    },
+    "379eb2a3-9035-4975-8228-1f93404cdce8": {
+      "ProjectGuid": "379eb2a3-9035-4975-8228-1f93404cdce8",
+      "DisplayName": "Codealytics.Console",
+      "ColorIndex": 1
+    },
+    "d34ac5e7-958d-43c7-968c-1a0fa56b691c": {
+      "ProjectGuid": "d34ac5e7-958d-43c7-968c-1a0fa56b691c",
+      "DisplayName": "Codealytics.Test",
+      "ColorIndex": 2
+    },
+    "55215dc7-7c6b-4417-8d93-7b9c97382bd7": {
+      "ProjectGuid": "55215dc7-7c6b-4417-8d93-7b9c97382bd7",
+      "DisplayName": "Codealytics.Console",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

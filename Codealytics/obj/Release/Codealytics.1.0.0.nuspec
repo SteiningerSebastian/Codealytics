@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Codealytics</id>
+    <version>1.0.0</version>
+    <authors>Codealytics</authors>
+    <license type="expression">MIT-Modern-Variant</license>
+    <licenseUrl>https://licenses.nuget.org/MIT-Modern-Variant</licenseUrl>
+    <description>This package provides a analytics-tool, Runtime of Code, Custom variables, Print and Handle UI.
+It is intended to be used to analyze code, it allso contains functions for statsitics.</description>
+    <releaseNotes>Initial</releaseNotes>
+    <copyright>Sebastian Steininger (sebastian.steininger@outlook.com)</copyright>
+    <tags>analytics code performance performance runtime codealytics</tags>
+    <repository type="git" url="https://github.com/SteiningerSebastian/Codealytics" />
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\Codealytics.dll" target="lib\net6.0\Codealytics.dll" />
+  </files>
+</package>

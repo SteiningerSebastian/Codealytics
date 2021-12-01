@@ -1,0 +1,11 @@
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\Codealytics.deps.json
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\Codealytics.dll
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\ref\Codealytics.dll
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\Codealytics.pdb
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.AssemblyInfoInputs.cache
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.AssemblyInfo.cs
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.csproj.CoreCompileInputs.cache
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.dll
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\ref\Codealytics.dll
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.pdb

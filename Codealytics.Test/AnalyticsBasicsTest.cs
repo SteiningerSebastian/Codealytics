@@ -128,10 +128,10 @@ namespace Codealytics.Test
             analytics = new Analytics();
             analytics.AddMetric<string>("varString", "World!");
             analytics.AddMetric<int>("varInt", 3);
-            analytics.AddMetric<double>("varDouble", 14);
+            analytics.AddMetric<double>("varDouble", 14, true);
             analytics.AddMetric<string>("varStringFunc", () => { return "Hello!"; });
             analytics.AddMetric<int>("varIntFunc", () => { return 1 + 3; });
-            Assert.Equal("--------------- Analytics ---------------\nvarDouble: 14 \nvarInt: 3 \nvarIntFunc: 4 \nvarString: World! \nvarStringFunc: Hello! \n------- Dev. Sebastian Steininger -------\n", analytics.ToString());
+            Assert.Equal("--------------- Analytics ---------------\nvarInt: 3 \nvarIntFunc: 4 \nvarString: World! \nvarStringFunc: Hello! \n------- Dev. Sebastian Steininger -------\n", analytics.ToString());
         }
 
         [Fact]

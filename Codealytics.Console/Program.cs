@@ -30,27 +30,27 @@ Analytics analytics = new Analytics();
 
 analytics.HandleUi = true;
 
-analytics.AddMetric<string>("varString", "World!");
-Thread.Sleep(200);
-analytics.AddMetric<int>("varInt", 3);
-Thread.Sleep(200);
-analytics.AddMetric<double>("varDouble", 2);
-Thread.Sleep(200);
-analytics.AddMetric<string>("varStringFunc", () => { return "Hello!"; });
-Thread.Sleep(200);
-analytics.AddMetric<int>("varIntFunc", () => { return 1 + 3; });
+//analytics.AddMetric<string>("varString", "World!");
+//Thread.Sleep(200);
+//analytics.AddMetric<int>("varInt", 3);
+//Thread.Sleep(200);
+//analytics.AddMetric<double>("varDouble", 2);
+//Thread.Sleep(200);
+//analytics.AddMetric<string>("varStringFunc", () => { return "Hello!"; });
+//Thread.Sleep(200);
+//analytics.AddMetric<int>("varIntFunc", () => { return 1 + 3; });
 
-while (true)
-{
-    analytics.UpdateMetric<double>("varDouble", (d) =>
-    {
-        if (d > 1000)
-        {
-            return (int)d / 3;
-        }
-        return d * 2 -1;
-    });
-}
+//while (true)
+//{
+//    analytics.UpdateMetric<double>("varDouble", (d) =>
+//    {
+//        if (d > 1000)
+//        {
+//            return (int)d / 3;
+//        }
+//        return d * 2 -1;
+//    });
+//}
 
 //string a = analytics.ToString();
 //Console.WriteLine(analytics);
@@ -62,3 +62,12 @@ while (true)
 //Console.WriteLine(analytics.GetMetric<string>("varString"));
 
 //Console.WriteLine(analytics);
+
+string id = analytics.CodeRuntimePerformance(() => { System.Threading.Thread.Sleep(1000); });
+System.Threading.Thread.Sleep(1000);
+
+while (true)
+{
+    System.Threading.Thread.Sleep(100);
+    analytics.CodeRuntimePerformance(id, () => { System.Threading.Thread.Sleep(900); });
+}

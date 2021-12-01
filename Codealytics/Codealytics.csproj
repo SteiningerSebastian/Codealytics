@@ -4,6 +4,21 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>This package provides an analytics-tool, Runtime of Code, Custom variables, Print and Handle UI.
+It is intended to be used to analyze code.</Description>
+    <Copyright>Sebastian Steininger (sebastian.steininger@outlook.com)</Copyright>
+    <RepositoryUrl>https://github.com/SteiningerSebastian/Codealytics</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>analytics; code performance; performance; runtime; codealytics;</PackageTags>
+    <FileVersion></FileVersion>
+    <AssemblyVersion></AssemblyVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageReleaseNotes>Initial</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.0.0-a1</Version>
+    <Company>Sebastian Steininger</Company>
+    <Authors>Sebastian Steininger</Authors>
   </PropertyGroup>
 
 </Project>
