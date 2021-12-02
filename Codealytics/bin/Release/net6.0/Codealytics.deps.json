@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Codealytics/1.0.0-a1": {
+      "Codealytics/1.0.0-a2": {
         "runtime": {
           "Codealytics.dll": {}
         }
@@ -14,7 +14,7 @@
     }
   },
   "libraries": {
-    "Codealytics/1.0.0-a1": {
+    "Codealytics/1.0.0-a2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -18,7 +18,7 @@ It is intended to be used to analyze code.</description>
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Debug\net6.0\Codealytics.dll" target="lib\net6.0\Codealytics.dll" />
+    <file src="C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\Codealytics.dll" target="lib\net6.0\Codealytics.dll" />
     <file src="C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\README.md" target="\README.md" />
   </files>
 </package>

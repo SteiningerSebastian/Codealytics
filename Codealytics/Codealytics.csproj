@@ -19,6 +19,14 @@ It is intended to be used to analyze code.</Description>
     <Version>1.0.0-a2</Version>
     <Company>Sebastian Steininger</Company>
     <Authors>Sebastian Steininger</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
