@@ -1,2 +1,0 @@
-﻿
-Analytics analytics = new Analytics();
