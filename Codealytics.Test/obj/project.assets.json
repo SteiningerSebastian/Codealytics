@@ -1671,7 +1671,7 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Codealytics/1.0.0-a1": {
+      "Codealytics/1.0.0-a2": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
@@ -5973,7 +5973,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Codealytics/1.0.0-a1": {
+    "Codealytics/1.0.0-a2": {
       "type": "project",
       "path": "../Codealytics/Codealytics.csproj",
       "msbuildProject": "../Codealytics/Codealytics.csproj"
@@ -5981,7 +5981,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Codealytics >= 1.0.0-a1",
+      "Codealytics >= 1.0.0-a2",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",

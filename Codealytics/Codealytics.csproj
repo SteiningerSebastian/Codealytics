@@ -16,7 +16,7 @@ It is intended to be used to analyze code.</Description>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReleaseNotes>Initial</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.0.0-a1</Version>
+    <Version>1.0.0-a2</Version>
     <Company>Sebastian Steininger</Company>
     <Authors>Sebastian Steininger</Authors>
   </PropertyGroup>

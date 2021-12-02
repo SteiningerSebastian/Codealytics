@@ -208,7 +208,7 @@ namespace Codealytics
             if (metrics.TryGetValue(id, out (Type type, dynamic value) value))
             {
                 //check if the value equals the type
-                if (value.value.GetType() == typeof(T))
+                if (value.type.GetProperty("Method") == null)
                 {
                     return (T)value.value;
                 }
@@ -464,11 +464,15 @@ namespace Codealytics
                                 if (kvp.Value.type.GetProperty("Method") != null)
                                 {
                                     Console.CursorLeft = ($"{id}: ").Length;
+                                    Console.Write(new string(' ', Console.WindowWidth - ($"{id}: ").Length));
+                                    Console.CursorLeft = ($"{id}: ").Length;
                                     var v = metrics[id].value();
                                     Console.Write($"{v}\n");
                                 }
                                 else
                                 {
+                                    Console.CursorLeft = ($"{id}: ").Length;
+                                    Console.Write(new string(' ', Console.WindowWidth- ($"{id}: ").Length));
                                     Console.CursorLeft = ($"{id}: ").Length;
                                     Console.Write($"{metrics[id].value}\n");
                                 }

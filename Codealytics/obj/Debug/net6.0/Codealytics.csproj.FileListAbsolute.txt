@@ -9,4 +9,3 @@ C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Debug\ne
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Debug\net6.0\Codealytics.dll
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Debug\net6.0\ref\Codealytics.dll
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Debug\net6.0\Codealytics.pdb
-C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Debug\net6.0\Codealytics.csproj.AssemblyReference.cache

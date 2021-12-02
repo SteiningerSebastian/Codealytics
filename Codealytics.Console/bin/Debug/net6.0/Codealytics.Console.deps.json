@@ -8,13 +8,13 @@
     ".NETCoreApp,Version=v6.0": {
       "Codealytics.Console/1.0.0": {
         "dependencies": {
-          "Codealytics": "1.0.0"
+          "Codealytics": "1.0.0-a2"
         },
         "runtime": {
           "Codealytics.Console.dll": {}
         }
       },
-      "Codealytics/1.0.0": {
+      "Codealytics/1.0.0-a2": {
         "runtime": {
           "Codealytics.dll": {}
         }
@@ -27,7 +27,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Codealytics/1.0.0": {
+    "Codealytics/1.0.0-a2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

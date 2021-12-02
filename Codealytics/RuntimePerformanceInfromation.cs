@@ -16,7 +16,7 @@ namespace Codealytics
         {
             get
             {
-                return EllepsedMilliseconsList.Sum() / (double)EllepsedMilliseconsList.Count;
+                return Math.Round(EllepsedMilliseconsList.Sum() / (double)EllepsedMilliseconsList.Count,2);
             }
         }
 
@@ -33,14 +33,15 @@ namespace Codealytics
         {
             get
             {
+                //ERROR NEED A TEST FOR THAT AND STD
                 double avg = AvgEllepsedMilliseconds;
-                double variance = 0;
+                double variance = EllepsedMilliseconsList.Sum();
                 foreach (var e in EllepsedMilliseconsList)
                 {
                     variance += Math.Pow(e - avg, 2);
                 }
                 variance /= EllepsedMilliseconsList.Count();
-                return Variance;
+                return Math.Round(variance, 2);
             }
         }
 
@@ -51,7 +52,7 @@ namespace Codealytics
         {
             get
             {
-                return Math.Sqrt(Variance);
+                return Math.Round(Math.Sqrt(Variance),2);
             }
         }
 
@@ -77,9 +78,9 @@ namespace Codealytics
         {
             string output = "";
 
-            output += $"AvgRuntime: {AvgEllepsedMilliseconds}";
-            output += $"; TotalRuntime: {TotalEllepsedMilliseconds}";
-
+            output += $"AvgRuntime: {AvgEllepsedMilliseconds.ToString("N2")}";
+            output += $"|TotalRuntime: {TotalEllepsedMilliseconds.ToString("N2")}";
+            output += $"|Standard-Deviation: {StandardDeviation.ToString("N2")}";
             return output;
         }
     }
