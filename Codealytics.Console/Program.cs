@@ -4,7 +4,7 @@ using Codealytics.HardwareMonitor;
 Analytics analytics = new Analytics();
 analytics.HandleUi = true;
 ////Console.WriteLine(analytics.HandleUi);
-//analytics.AddMetric<string>("myString", "hello");
+//analytics.AddMetric<string>("myString", "hello", true);
 //Thread.Sleep(1000);
 //analytics.AddMetric<bool>("IsWorking", () => { return true; });
 //Thread.Sleep(500);
@@ -89,3 +89,4 @@ analytics.HandleUi = true;
 
 Console.WriteLine(Math.Round(HardwareMonitor.Instance.CPU).ToString() + "%");
 analytics.AddMetric<string>("CPU", () => { return Math.Round(HardwareMonitor.Instance.CPU).ToString() + "%"; });
+analytics.AddMetric<string>("RAM", () => { return Math.Round(HardwareMonitor.Instance.RAM).ToString() + "%"; });

@@ -67,7 +67,7 @@
       }
     },
     "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics.HardwareMonitor\\Codealytics.HardwareMonitor.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.0-a1",
       "restore": {
         "projectUniqueName": "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics.HardwareMonitor\\Codealytics.HardwareMonitor.csproj",
         "projectName": "Codealytics.HardwareMonitor",
@@ -131,7 +131,7 @@
       }
     },
     "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics\\Codealytics.csproj": {
-      "version": "1.0.0-a2",
+      "version": "1.0.0-b4",
       "restore": {
         "projectUniqueName": "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics\\Codealytics.csproj",
         "projectName": "Codealytics",

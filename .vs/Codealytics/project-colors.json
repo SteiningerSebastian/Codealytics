@@ -20,7 +20,12 @@
       "ProjectGuid": "55215dc7-7c6b-4417-8d93-7b9c97382bd7",
       "DisplayName": "Codealytics.Console",
       "ColorIndex": 3
+    },
+    "b7693ee1-7fb4-444f-a1c8-50d3b8a0e998": {
+      "ProjectGuid": "b7693ee1-7fb4-444f-a1c8-50d3b8a0e998",
+      "DisplayName": "Codealytics.HardwareMonitor",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 5
 }

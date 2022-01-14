@@ -67,6 +67,22 @@ namespace Codealytics.HardwareMonitor
             }
         }
 
+        private float ramUsage =-1;
+
+        /// <summary>
+        /// Gets the percentage of used ram
+        /// </summary>
+        public float RAM
+        {
+            get
+            {
+                return ramUsage;
+            }
+            set{
+                ramUsage = value;
+            }
+        }
+
 
         /// <summary>
         /// Handels all PerformanceCounter, shoul not be invoked by the main thread
@@ -77,6 +93,7 @@ namespace Codealytics.HardwareMonitor
             {
                 Thread.Sleep(Delay);
                 UpdateCPUUsage();
+                UpdateRamUsage();
             }
         }
 
@@ -118,6 +135,46 @@ namespace Codealytics.HardwareMonitor
                 CPUAllCores.Clear();
                 CPUAllCores.AddRange(cpuCores);
             }
+        }
+
+        /// <summary>
+        /// Update the ram Usage
+        /// </summary>
+        private void UpdateRamUsage()
+        {
+            MEMORY_INFO ramInfo = GetRAMStatus();
+            RAM = ramInfo.dwMemoryLoad;
+        }
+
+        [DllImport("kernel32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool GlobalMemoryStatusEx(ref MEMORY_INFO mi);
+
+        //Define the information structure of memory
+        [StructLayout(LayoutKind.Sequential)]
+        public struct MEMORY_INFO
+        {
+            public uint dwLength; //Current structure size
+            public uint dwMemoryLoad; //Current memory utilization
+            public ulong ullTotalPhys; //Total physical memory size
+            public ulong ullAvailPhys; //Available physical memory size
+            public ulong ullTotalPageFile; //Total Exchange File Size
+            public ulong ullAvailPageFile; //Total Exchange File Size
+            public ulong ullTotalVirtual; //Total virtual memory size
+            public ulong ullAvailVirtual; //Available virtual memory size
+            public ulong ullAvailExtendedVirtual; //Keep this value always zero
+        }
+
+        /// <summary>
+        /// Get the current ram usage
+        /// </summary>
+        /// <returns>Returns a structure containing information about the memory</returns>
+        private MEMORY_INFO GetRAMStatus()
+        {
+            MEMORY_INFO mi = new MEMORY_INFO();
+            mi.dwLength = (uint)System.Runtime.InteropServices.Marshal.SizeOf(mi);
+            GlobalMemoryStatusEx(ref mi);
+            return mi;
         }
     }
 }

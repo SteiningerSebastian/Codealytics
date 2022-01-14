@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xoyzuaXkmDPQH/V7h46xqfLo26NulGLELkkz9yHzTN3dHPF2B6Id4nbf/77ayFVA2dbDZpG8QjjXA2LnL8ZQRg==",
+  "dgSpecHash": "qeyKfOCb2F41MyEJXRtXt84PPrbK0/PryMakDSbqvJJ96jJqU7vuWyVy0sbtzDCdKgMbEG4B6qmuKrFol4gbkg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics.Test\\Codealytics.Test.csproj",
   "expectedPackageFiles": [
@@ -103,8 +103,7 @@
     "C:\\Users\\sebas\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
     "C:\\Users\\sebas\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
     "C:\\Users\\sebas\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
-    "C:\\Users\\sebas\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512",
-    "C:\\Users\\sebas\\.nuget\\packages\\codealytics\\1.0.0-a2\\codealytics.1.0.0-a2.nupkg.sha512"
+    "C:\\Users\\sebas\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
   "logs": []
 }

@@ -14,10 +14,10 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sebastian Steininger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Sebastian Steininger (sebastian.steininger@outlook.com)")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute("This package provides an analytics-tool, Runtime of Code, Custom variables, Print" +
-    " and Handle UI.\r\nIt is intended to be used to analyze code.")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("This package provides an analytics-tool, Runtime of Code, Custom variables, Hardw" +
+    "are-Monitor Print and Handle UI.\r\nIt is intended to be used to analyze code.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0-a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0-b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Codealytics")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Codealytics")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

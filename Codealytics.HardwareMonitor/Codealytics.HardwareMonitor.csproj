@@ -4,7 +4,24 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Version>1.0.0-a1</Version>
+    <Description>A package providing functions for eg. CPU or RAM monitoring.</Description>
+    <Copyright>Sebastian Steininger (sebastian.steininger@outlook.com)</Copyright>
+    <RepositoryUrl>https://github.com/SteiningerSebastian/Codealytics</RepositoryUrl>
+    <PackageTags>analytics; code performance; performance; runtime; codealytics;</PackageTags>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="6.0.0" />

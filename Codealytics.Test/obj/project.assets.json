@@ -1821,11 +1821,11 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Codealytics/1.0.0-a2": {
+      "Codealytics/1.0.0-b4": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Codealytics.HardwareMonitor": "1.0.0"
+          "Codealytics.HardwareMonitor": "1.0.0-a1"
         },
         "compile": {
           "bin/placeholder/Codealytics.dll": {}
@@ -1834,7 +1834,7 @@
           "bin/placeholder/Codealytics.dll": {}
         }
       },
-      "Codealytics.HardwareMonitor/1.0.0": {
+      "Codealytics.HardwareMonitor/1.0.0-a1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -6377,12 +6377,12 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Codealytics/1.0.0-a2": {
+    "Codealytics/1.0.0-b4": {
       "type": "project",
       "path": "../Codealytics/Codealytics.csproj",
       "msbuildProject": "../Codealytics/Codealytics.csproj"
     },
-    "Codealytics.HardwareMonitor/1.0.0": {
+    "Codealytics.HardwareMonitor/1.0.0-a1": {
       "type": "project",
       "path": "../Codealytics.HardwareMonitor/Codealytics.HardwareMonitor.csproj",
       "msbuildProject": "../Codealytics.HardwareMonitor/Codealytics.HardwareMonitor.csproj"
@@ -6390,7 +6390,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Codealytics >= 1.0.0-a2",
+      "Codealytics >= 1.0.0-b4",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",

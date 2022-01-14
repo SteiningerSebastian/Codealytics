@@ -152,7 +152,7 @@
           }
         }
       },
-      "Codealytics.HardwareMonitor/1.0.0": {
+      "Codealytics.HardwareMonitor/1.0.0-a1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -406,7 +406,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Codealytics.HardwareMonitor/1.0.0": {
+    "Codealytics.HardwareMonitor/1.0.0-a1": {
       "type": "project",
       "path": "../Codealytics.HardwareMonitor/Codealytics.HardwareMonitor.csproj",
       "msbuildProject": "../Codealytics.HardwareMonitor/Codealytics.HardwareMonitor.csproj"
@@ -414,7 +414,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Codealytics.HardwareMonitor >= 1.0.0"
+      "Codealytics.HardwareMonitor >= 1.0.0-a1"
     ]
   },
   "packageFolders": {
@@ -422,7 +422,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "1.0.0-a2",
+    "version": "1.0.0-b4",
     "restore": {
       "projectUniqueName": "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics\\Codealytics.csproj",
       "projectName": "Codealytics",
