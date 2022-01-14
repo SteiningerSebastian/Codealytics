@@ -10,3 +10,6 @@ C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\ref\Codealytics.dll
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.pdb
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.csproj.AssemblyReference.cache
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\Codealytics.HardwareMonitor.dll
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\bin\Release\net6.0\Codealytics.HardwareMonitor.pdb
+C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics\obj\Release\net6.0\Codealytics.csproj.CopyComplete

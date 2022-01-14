@@ -14,7 +14,9 @@ It is intended to be used to analyze code.</description>
     <tags>analytics code performance performance runtime codealytics</tags>
     <repository type="git" url="https://github.com/SteiningerSebastian/Codealytics" />
     <dependencies>
-      <group targetFramework="net6.0" />
+      <group targetFramework="net6.0">
+        <dependency id="Codealytics.HardwareMonitor" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
     </dependencies>
   </metadata>
   <files>

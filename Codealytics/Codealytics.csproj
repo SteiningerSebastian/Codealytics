@@ -29,4 +29,8 @@ It is intended to be used to analyze code.</Description>
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Codealytics.HardwareMonitor\Codealytics.HardwareMonitor.csproj" />
+  </ItemGroup>
+
 </Project>

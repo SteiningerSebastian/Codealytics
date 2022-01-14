@@ -1,8 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "htJ6lnspWd3G7vpwSvONMqX1JF5YEcynSAtQSoaZ8a4Uka6Q/idXVhTmb+awoUzAe6Jns274we3RhgMJvTBrzA==",
+  "dgSpecHash": "+Wn0GpFaGt9fihLWHZa1+YXDQRxaGc3+/IdxkbVAH8FRSxgmg8V1+2N/1jblf34u6TxwAYNoJYBkFc7z/HKzTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics.Console\\Codealytics.Console.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\sebas\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\system.diagnostics.performancecounter\\6.0.0\\system.diagnostics.performancecounter.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\sebas\\.nuget\\packages\\codealytics\\1.0.0-a2\\codealytics.1.0.0-a2.nupkg.sha512"
+  ],
   "logs": []
 }
