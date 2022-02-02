@@ -2,7 +2,6 @@ C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMoni
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMonitor\bin\Debug\net6.0\Codealytics.HardwareMonitor.dll
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMonitor\bin\Debug\net6.0\ref\Codealytics.HardwareMonitor.dll
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMonitor\bin\Debug\net6.0\Codealytics.HardwareMonitor.pdb
-C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMonitor\obj\Debug\net6.0\Codealytics.HardwareMonitor.csproj.AssemblyReference.cache
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMonitor\obj\Debug\net6.0\Codealytics.HardwareMonitor.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMonitor\obj\Debug\net6.0\Codealytics.HardwareMonitor.AssemblyInfoInputs.cache
 C:\Users\sebas\OneDrive\programming\Anderes\Codealytics\Codealytics.HardwareMonitor\obj\Debug\net6.0\Codealytics.HardwareMonitor.AssemblyInfo.cs

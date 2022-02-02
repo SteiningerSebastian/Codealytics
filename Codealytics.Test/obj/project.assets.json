@@ -1821,7 +1821,7 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "Codealytics/1.0.0-b4": {
+      "Codealytics/1.0.0-b5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -6377,7 +6377,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Codealytics/1.0.0-b4": {
+    "Codealytics/1.0.0-b5": {
       "type": "project",
       "path": "../Codealytics/Codealytics.csproj",
       "msbuildProject": "../Codealytics/Codealytics.csproj"
@@ -6390,7 +6390,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Codealytics >= 1.0.0-b4",
+      "Codealytics >= 1.0.0-b5",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",
@@ -6481,7 +6481,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

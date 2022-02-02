@@ -6,9 +6,9 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Codealytics/1.0.0-a2": {
+      "Codealytics/1.0.0-b5": {
         "dependencies": {
-          "Codealytics.HardwareMonitor": "1.0.0"
+          "Codealytics.HardwareMonitor": "1.0.0-a1"
         },
         "runtime": {
           "Codealytics.dll": {}
@@ -134,7 +134,7 @@
           }
         }
       },
-      "Codealytics.HardwareMonitor/1.0.0": {
+      "Codealytics.HardwareMonitor/1.0.0-a1": {
         "dependencies": {
           "System.Diagnostics.PerformanceCounter": "6.0.0"
         },
@@ -145,7 +145,7 @@
     }
   },
   "libraries": {
-    "Codealytics/1.0.0-a2": {
+    "Codealytics/1.0.0-b5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -206,7 +206,7 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "Codealytics.HardwareMonitor/1.0.0": {
+    "Codealytics.HardwareMonitor/1.0.0-a1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

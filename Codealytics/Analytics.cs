@@ -56,7 +56,14 @@ namespace Codealytics
                 }
                 else
                 {
-                    prefix = value;
+                    if (!value.EndsWith('\n'))
+                    {
+                        prefix = value + '\n';
+                    }
+                    else
+                    {
+                        prefix = value;
+                    }
                 }
             }
         }
@@ -76,7 +83,14 @@ namespace Codealytics
                 }
                 else
                 {
-                    suffix = value;
+                    if (!value.EndsWith('\n'))
+                    {
+                        suffix = value + '\n';
+                    }
+                    else
+                    {
+                        suffix = value;
+                    }
                 }
             }
         }
@@ -189,6 +203,19 @@ namespace Codealytics
                 hiddenMetrics.TryRemove(id, out bool _btmp);
 
                 throw new Exception("Something went wrong! (e.g. compromised thread safety)");
+            }
+        }
+
+        /// <summary>
+        /// Adds multiple values from a dictionary.
+        /// </summary>
+        /// <typeparam name="T">The value-type of the dictionary.</typeparam>
+        /// <param name="metrics">The dictionary containing the values.</param>
+        public void AddMetric<T>(Dictionary<string, T> metrics)
+        {
+            foreach(KeyValuePair<string, T> kvp in metrics)
+            {
+                this.AddMetric<T>(kvp.Key, kvp.Value);
             }
         }
 
@@ -397,8 +424,9 @@ namespace Codealytics
         /// Starts a new Thread that handels the presentation of the analytics. (Pleas do not use the console)
         /// </summary>
         /// <param name="ups">Updates per second.</param>
-        private void StartHandleUI(int ups = 32)
+        public void StartHandleUI(int ups = 32)
         {
+            handleUi = true;
             //Create a new thread handling the Ui and return after start
             Thread th = new Thread(() =>
             {

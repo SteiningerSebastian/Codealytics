@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Codealytics.Test/1.0.0": {
         "dependencies": {
-          "Codealytics": "1.0.0-b3",
+          "Codealytics": "1.0.0-b4",
           "Microsoft.NET.Test.Sdk": "16.11.0",
           "coverlet.collector": "3.1.0",
           "xunit": "2.4.1",
@@ -1210,15 +1210,15 @@
         }
       },
       "xunit.runner.visualstudio/2.4.3": {},
-      "Codealytics/1.0.0-b3": {
+      "Codealytics/1.0.0-b4": {
         "dependencies": {
-          "Codealytics.HardwareMonitor": "1.0.0"
+          "Codealytics.HardwareMonitor": "1.0.0-a1"
         },
         "runtime": {
           "Codealytics.dll": {}
         }
       },
-      "Codealytics.HardwareMonitor/1.0.0": {
+      "Codealytics.HardwareMonitor/1.0.0-a1": {
         "dependencies": {
           "System.Diagnostics.PerformanceCounter": "6.0.0"
         },
@@ -1934,12 +1934,12 @@
       "path": "xunit.runner.visualstudio/2.4.3",
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
-    "Codealytics/1.0.0-b3": {
+    "Codealytics/1.0.0-b4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Codealytics.HardwareMonitor/1.0.0": {
+    "Codealytics.HardwareMonitor/1.0.0-a1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

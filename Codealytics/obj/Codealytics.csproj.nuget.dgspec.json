@@ -64,12 +64,12 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
     "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics\\Codealytics.csproj": {
-      "version": "1.0.0-b4",
+      "version": "1.0.0-b5",
       "restore": {
         "projectUniqueName": "C:\\Users\\sebas\\OneDrive\\programming\\Anderes\\Codealytics\\Codealytics\\Codealytics.csproj",
         "projectName": "Codealytics",
@@ -126,7 +126,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -2,6 +2,9 @@
 using Codealytics.HardwareMonitor;
 
 Analytics analytics = new Analytics();
+
+analytics.Prefix = "------------ sofdihasodfhiusahf ---------------s";
+
 analytics.HandleUi = true;
 ////Console.WriteLine(analytics.HandleUi);
 //analytics.AddMetric<string>("myString", "hello", true);
@@ -87,6 +90,6 @@ analytics.HandleUi = true;
 //    analytics.CodeRuntimePerformance(id, () => { System.Threading.Thread.Sleep(900); });
 //}
 
-Console.WriteLine(Math.Round(HardwareMonitor.Instance.CPU).ToString() + "%");
+//Console.WriteLine(Math.Round(HardwareMonitor.Instance.CPU).ToString() + "%");
 analytics.AddMetric<string>("CPU", () => { return Math.Round(HardwareMonitor.Instance.CPU).ToString() + "%"; });
 analytics.AddMetric<string>("RAM", () => { return Math.Round(HardwareMonitor.Instance.RAM).ToString() + "%"; });
