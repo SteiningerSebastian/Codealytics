@@ -152,7 +152,7 @@
           }
         }
       },
-      "Codealytics/1.0.0-b5": {
+      "Codealytics/1.0.0-b6": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -419,7 +419,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Codealytics/1.0.0-b5": {
+    "Codealytics/1.0.0-b6": {
       "type": "project",
       "path": "../Codealytics/Codealytics.csproj",
       "msbuildProject": "../Codealytics/Codealytics.csproj"
@@ -432,7 +432,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Codealytics >= 1.0.0-b5"
+      "Codealytics >= 1.0.0-b6"
     ]
   },
   "packageFolders": {

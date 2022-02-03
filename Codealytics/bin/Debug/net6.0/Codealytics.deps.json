@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Codealytics/1.0.0-b5": {
+      "Codealytics/1.0.0-b6": {
         "dependencies": {
           "Codealytics.HardwareMonitor": "1.0.0-a1"
         },
@@ -145,7 +145,7 @@
     }
   },
   "libraries": {
-    "Codealytics/1.0.0-b5": {
+    "Codealytics/1.0.0-b6": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

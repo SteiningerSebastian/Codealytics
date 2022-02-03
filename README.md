@@ -27,3 +27,14 @@ Returns a string build with Prefix and Suffix that contians all values that shou
 ### Hardware-Monitoring
     analytics.AddMetric<string>("CPU", () => { return Math.Round(HardwareMonitor.Instance.CPU).ToString() + "%"; });
     analytics.AddMetric<string>("RAM", () => { return Math.Round(HardwareMonitor.Instance.RAM).ToString() + "%"; });
+
+### Code Runtime Performance
+    analytics.AddMetric<IRuntimePerformanceInfromation>("G_Train_Performance", new RuntimePerformanceInfromation());
+    analytics.CodeRuntimePerformance("G_Train_Performance", () =>
+    {
+        (costEval, accEval) = model.TrainOnBatch(inputs.ToArray(), outputs.ToArray());
+    });
+    string id = analytics.CodeRuntimePerformance(() =>
+    {
+        (costEval, accEval) = model.TrainOnBatch(inputs.ToArray(), outputs.ToArray());
+    });
