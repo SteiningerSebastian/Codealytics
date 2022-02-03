@@ -10,6 +10,12 @@ namespace Codealytics
 {
     public class Analytics
     {
+        public enum OperationMode
+        {
+            Debug,
+            Release
+        }
+
         /// <summary>
         /// A threadsafe dictionary to save metrics the user registers
         /// </summary>
@@ -115,6 +121,25 @@ namespace Codealytics
             }
         }
 
+        public OperationMode Mode { get; private set; }
+
+        /// <summary>
+        /// Creates a new object of the class with the given mode. Debug: work as intended; Release: do nothing, return.
+        /// </summary>
+        /// <param name="mode"></param>
+        public Analytics(Analytics.OperationMode mode)
+        {
+            this.Mode = mode;
+        }
+
+        /// <summary>
+        /// Creates a new object of the class with the given mode. Debug: work as intended; Release: do nothing, return.
+        /// </summary>
+        public Analytics()
+        {
+            this.Mode = OperationMode.Debug;
+        }
+
         /// <summary>
         /// A private uuid for auto generated metrics.
         /// </summary>
@@ -131,6 +156,9 @@ namespace Codealytics
         /// <exception cref="ArgumentNullException">Is thrown if the value parameter is null!</exception>
         public void AddMetric<T>(string id, T value, bool hide = false)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return;
+
             if (value == null)
             {
                 throw new ArgumentNullException("The value can not be null!");
@@ -174,6 +202,9 @@ namespace Codealytics
         /// <exception cref="ArgumentNullException">Is thrown if the value parameter is null!</exception>
         public void AddMetric<T>(string id, Func<T> calculation, bool hide = false)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return;
+
             if (calculation == null)
             {
                 throw new ArgumentNullException("The calculation can not be null!");
@@ -213,7 +244,10 @@ namespace Codealytics
         /// <param name="metrics">The dictionary containing the values.</param>
         public void AddMetric<T>(Dictionary<string, T> metrics)
         {
-            foreach(KeyValuePair<string, T> kvp in metrics)
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return;
+
+            foreach (KeyValuePair<string, T> kvp in metrics)
             {
                 this.AddMetric<T>(kvp.Key, kvp.Value);
             }
@@ -229,6 +263,12 @@ namespace Codealytics
         /// <exception cref="Exception">Is thrown if a callable type was expacted but gut a non callable type!</exception>
         public T GetMetric<T>(string id)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release)
+            {
+                throw new InvalidOperationException("Can not Get a metric when in release-Mode!");
+            }
+
             CheckIdentifier(id);
 
             //Try to get a value from the dictionary
@@ -252,7 +292,7 @@ namespace Codealytics
                 }
             }
 
-            throw new NullReferenceException("No definition for the given metric could be found or and other error occurred (eg. compromised thread safety).");
+            throw new NullReferenceException("No definition for the given metric could be found or an other error occurred (eg. compromised thread safety).");
         }
 
         /// <summary>
@@ -265,6 +305,9 @@ namespace Codealytics
         /// <exception cref="ArgumentNullException">Is thrown if the value parameter is null!</exception>
         public void UpdateMetric<T>(string id, T value, bool hide = false)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return;
+
             if (value == null)
             {
                 throw new ArgumentNullException("The value can not be null!");
@@ -304,6 +347,9 @@ namespace Codealytics
         /// <exception cref="ArgumentNullException">Is thrown if the func parameter is null!</exception>
         public void UpdateMetric<T>(string id, Func<T, T> func, bool hide = false)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return;
+
             if (func == null)
             {
                 throw new ArgumentNullException("Func can not be null!");
@@ -343,6 +389,9 @@ namespace Codealytics
         /// <exception cref="NullReferenceException">Is thrown if no definition for the metric is known or does not exist!</exception>
         public void UpdateMetric<T>(string id, Func<T> calculation)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return;
+
             if (calculation == null)
             {
                 throw new ArgumentNullException("The calculation can not be null");
@@ -374,6 +423,9 @@ namespace Codealytics
         /// <returns>Returns a true if the metric exists</returns>
         public bool MetricExists(string id)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return false;
+
             CheckIdentifier(id);
             return metrics.ContainsKey(id);
         }
@@ -386,6 +438,13 @@ namespace Codealytics
         /// <param name="action">The code that should be analyced during runtime.</param>
         public void CodeRuntimePerformance(string id, Action action)
         {
+            //return if the mode is release, after calling action
+            if (this.Mode == OperationMode.Release)
+            {
+                action();
+                return;
+            }
+
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             action();
@@ -405,6 +464,9 @@ namespace Codealytics
         /// <param name="action">The code that should be analyced during runtime.</param>
         public string CodeRuntimePerformance(Action action)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return "";
+
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
             action();
@@ -426,6 +488,9 @@ namespace Codealytics
         /// <param name="ups">Updates per second.</param>
         public void StartHandleUI(int ups = 32)
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return;
+
             handleUi = true;
             //Create a new thread handling the Ui and return after start
             Thread th = new Thread(() =>
@@ -530,6 +595,9 @@ namespace Codealytics
         /// <returns>Returns a string contining information of the class</returns>
         public override string ToString()
         {
+            //return if the mode is release
+            if (this.Mode == OperationMode.Release) return "";
+
             string output = "";
             output += prefix;
             List<KeyValuePair<string, (Type type, dynamic value)>> kvpList = metrics.ToList().OrderBy(metric => metric.Key).ToList();

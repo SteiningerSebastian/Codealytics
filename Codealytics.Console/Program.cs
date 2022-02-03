@@ -1,7 +1,7 @@
 ﻿using Codealytics;
 using Codealytics.HardwareMonitor;
 
-Analytics analytics = new Analytics();
+Analytics analytics = new Analytics(Analytics.OperationMode.Debug);
 
 analytics.Prefix = "------------ sofdihasodfhiusahf ---------------s";
 

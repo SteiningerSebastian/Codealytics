@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Codealytics.Console/1.0.0": {
         "dependencies": {
-          "Codealytics": "1.0.0-b4"
+          "Codealytics": "1.0.0-b5"
         },
         "runtime": {
           "Codealytics.Console.dll": {}
@@ -134,7 +134,7 @@
           }
         }
       },
-      "Codealytics/1.0.0-b4": {
+      "Codealytics/1.0.0-b5": {
         "dependencies": {
           "Codealytics.HardwareMonitor": "1.0.0-a1"
         },
@@ -214,7 +214,7 @@
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
-    "Codealytics/1.0.0-b4": {
+    "Codealytics/1.0.0-b5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

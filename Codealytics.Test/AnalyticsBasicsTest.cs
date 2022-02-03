@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Codealytics.Test
@@ -10,6 +11,20 @@ namespace Codealytics.Test
         public void TestConstructor()
         {
             Analytics analytics_tmp = new Analytics();
+            Assert.Equal(analytics_tmp.Mode, Analytics.OperationMode.Debug);
+
+            analytics_tmp = new Analytics(Analytics.OperationMode.Release);
+            Assert.Equal(analytics_tmp.Mode, Analytics.OperationMode.Release);
+        }
+
+        [Fact]
+        public void TestAddMetricDictionary()
+        {
+            analytics = new Analytics();
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+            dict.Add("hi", "hello");
+            dict.Add("hello", "world");
+            analytics.AddMetric<string>(dict);
         }
 
         [Fact]
@@ -54,6 +69,19 @@ namespace Codealytics.Test
             Assert.Equal("Hello World!", analytics.GetMetric<string>("varString"));
             Assert.Equal(10, analytics.GetMetric<int>("varInt"));
             Assert.Equal(10.94, analytics.GetMetric<double>("varDouble"));
+        }
+
+        [Fact]
+        public void TestGetMetricFunction_ReleaseMode()
+        {
+            analytics = new Analytics(Analytics.OperationMode.Release);
+            analytics.AddMetric<string>("varString", "Hello World!");
+            analytics.AddMetric<int>("varInt", 10);
+            analytics.AddMetric<double>("varDouble", 10.94);
+
+            Assert.Throws<InvalidOperationException>(() => analytics.GetMetric<string>("varString"));
+            Assert.Throws<InvalidOperationException>(() => analytics.GetMetric<int>("varInt"));
+            Assert.Throws<InvalidOperationException>(() => analytics.GetMetric<double>("varDouble"));
         }
 
         [Fact]
@@ -114,7 +142,7 @@ namespace Codealytics.Test
             analytics = new Analytics();
             if (invalid)
             {
-                Assert.Throws<ArgumentException>(()=> { analytics.AddMetric<bool>(name, true); });
+                Assert.Throws<ArgumentException>(() => { analytics.AddMetric<bool>(name, true); });
             }
             else
             {
